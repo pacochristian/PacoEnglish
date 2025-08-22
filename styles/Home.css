@@ -48,7 +48,7 @@ header li a:hover {
 }
 
 body {
-  background-image: url("/images/learn.jpg");
+  background-image: url("../images/learn.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
