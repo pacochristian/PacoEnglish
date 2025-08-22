@@ -115,7 +115,7 @@ p {
   }
 
   header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -199,7 +199,7 @@ p {
     top: 270px;
     display: inline-block;
     font-weight: bolder;
-    font-size: 23px;
+    font-size: 19px;
     width: max-content;
     transform: translate(-50%, -50%);
   }
