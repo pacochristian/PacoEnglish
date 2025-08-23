@@ -112,8 +112,7 @@ p {
   }
 
   body{
-    /* overflow-x: hidden; */
-    background-size: cover;
+    overflow-x: hidden;
   }
 
   .red:hover{
@@ -127,8 +126,7 @@ p {
     width: 100%;
     right: 0;
     z-index: 1000;
-    /* margin-left: 0;
-    margin-right: 0; */
+   
   }
 
   header li a:hover {
@@ -182,6 +180,9 @@ p {
 
   main {
     display: block;
+    position: relative;
+    left: 50px;
+    right: 50px;
     /* font-size: 30px; */
     padding: 10px;
     position: relative;
