@@ -67,6 +67,8 @@ main {
   text-align: center;
   font-size: 40px;
   font-weight: bold;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 h1 {
