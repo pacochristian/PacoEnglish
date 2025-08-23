@@ -174,15 +174,17 @@ p {
 
   main {
     display: block;
-    font-size: 15px;
+    /* font-size: 30px; */
     padding: 10px;
     position: relative;
+    /* float: right; */
     transform: translate(10%, 10%);
   }
 
   h1 {
     position: absolute;
     top: 190px;
+    font-size: 25px;
     display: inline-block;
     transform: translate(-50%, -50%);
   }
