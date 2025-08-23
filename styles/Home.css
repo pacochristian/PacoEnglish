@@ -158,9 +158,6 @@ p {
     z-index: 1000;
     position: fixed;
     border-radius: 9px;
-    /* transition: left 0.3s ease-in-out; */
-
-    /* transition: opacity 0.3s ease-in-out; */
   }
 
   .menu-toggle {
@@ -181,19 +178,17 @@ p {
   main {
     display: block;
     position: relative;
-    left: 50px;
-    right: 50px;
-    /* font-size: 30px; */
+    left: 100px;
+    right: 100px;
     padding: 10px;
     position: relative;
-    /* float: right; */
     transform: translate(10%, 10%);
   }
 
   h1 {
     position: absolute;
     top: 190px;
-    font-size: 30px;
+    font-size: 50px;
     display: inline-block;
     transform: translate(-50%, -50%);
   }
