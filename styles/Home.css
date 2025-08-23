@@ -126,7 +126,6 @@ p {
     width: 100%;
     right: 0;
     z-index: 1000;
-   
   }
 
   header li a:hover {
@@ -178,8 +177,8 @@ p {
   main {
     display: block;
     position: relative;
-    left: 100px;
-    right: 100px;
+    left: 60px;
+    right: 60px;
     padding: 10px;
     position: relative;
     transform: translate(10%, 10%);
@@ -200,6 +199,11 @@ p {
     padding-inline: 9px;
     font-size: 15px;
     transform: translate(-50%, -50%);
+  }
+
+  .logo{
+    margin: 0px;
+    padding: 5px;
   }
 
   p {
