@@ -4,9 +4,7 @@
   box-sizing: border-box;
 }
 
-body{
-  overflow-x: hidden;
-}
+
 header{
   position: sticky;
   top: 0;
@@ -111,6 +109,10 @@ p {
   .menu-toggle span {
     display: block;
     margin-left: 20px;
+  }
+
+  body{
+    overflow-x: hidden;
   }
 
   .red:hover{
