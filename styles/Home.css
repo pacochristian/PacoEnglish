@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* border: 1px solid red; */
 }
 
 
@@ -56,14 +57,11 @@ body {
   background-size: 100% 100%;
   background-attachment: fixed;
 }
-* {
-  /* border: 1px solid red; */
-}
 
 main {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(10, 1fr);
   row-gap: 20px;
   text-align: center;
   font-size: 40px;
@@ -111,11 +109,14 @@ p {
     margin-left: 20px;
   }
 
-  body{
+  body, html {
     overflow-x: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
 
-  .red:hover{
+  .red:hover {
     color: #fff;
   }
 
@@ -140,6 +141,7 @@ p {
    header nav ul li{
      padding: 10px 0;
    }
+
 
   #navbar {
     display: none;
@@ -177,17 +179,18 @@ p {
   main {
     display: block;
     position: relative;
-    left: 60px;
+    left: 20px;
     right: 60px;
     padding: 10px;
     position: relative;
     transform: translate(10%, 10%);
+    font-size: 5vw;
   }
 
   h1 {
     position: absolute;
     top: 190px;
-    font-size: 50px;
+    font-size: 30px;
     display: inline-block;
     transform: translate(-50%, -50%);
   }
@@ -197,13 +200,8 @@ p {
     top: 320px;
     display: inline-block;
     padding-inline: 9px;
-    font-size: 15px;
+    font-size: 4vw;
     transform: translate(-50%, -50%);
-  }
-
-  .logo{
-    position: relative;
-    left: 20px;
   }
 
   p {
