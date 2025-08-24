@@ -103,7 +103,7 @@ p {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1030px) {
   .menu-toggle span {
     display: block;
     margin-left: 20px;
