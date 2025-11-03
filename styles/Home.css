@@ -5,8 +5,12 @@
   /* border: 1px solid red; */
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
 
-header{
+header {
   position: sticky;
   top: 0;
   left: 0;
@@ -40,7 +44,9 @@ header nav ul li a {
 }
 
 header li a:hover {
-  color: #fff;
+  background-color: #eb5225;
+  padding: 2px 20px;
+  border-radius: 20px;
 }
 
 .red {
@@ -50,48 +56,61 @@ header li a:hover {
 }
 
 body {
-  background-image: url("../images/learn.jpg");
+  background-image: url("../images/library.jpg");
+  /* background-image: url("../images/learn.jpg"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
+  color: #fff;
+  font-weight: bolder;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
 }
+
 
 main {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-rows: 1fr 150px 50px;
+  /* grid-template-rows: repeat(4, 1fr); */
   row-gap: 20px;
   text-align: center;
   font-size: 40px;
   font-weight: bold;
+  width: 100%;
 }
 
 h1 {
-  grid-column: 2/12;
-  grid-row: 2/4;
+  /* position: relative;
+  top: 120px; */
+  grid-column: 7/12;
+  grid-row: 1/2;
 }
 
 p {
-  grid-column: 2/12;
-  grid-row: 4/10;
+  /* position: absolute;
+  bottom: 0px; */
+  grid-column: 7/12;
+  grid-row: 2/3;
 }
 
-.down {
-  grid-column: 5/9;
-  grid-row: 5/6;
+.button-style {
+  grid-column: 8/10;
+  grid-row: 3/4;
   font-size: 25px;
   background-color: #eb5225;
-  border-radius: 50px;
-  padding: 2px;
-}
-
-.down a {
+  border-radius: 19px;
+  border: none;
+  box-shadow: 0px 0px 25px 0px #000;
+  text-align: center;
+  max-width: 100%;
   text-decoration: none;
   color: #000;
   cursor: pointer;
+  padding: 10px;
 }
+
 .menu-toggle span {
   /* display: block; */
   display: none;
@@ -103,13 +122,63 @@ p {
   cursor: pointer;
 }
 
+.section1 {
+  position: absolute;
+  bottom: 0px;
+  top: 120px;
+  font-weight: bolder;
+  width: 500px;
+  height: 400px;
+  margin: 20px 0px 10px 80px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 25px;
+  /* border: 2px solid #000; */
+  animation: glowPulse 2s infinite;
+  padding: 50px;
+  /* background-color: rgba(255, 255, 255, 0.8); */
+}
+
+.section1 ul,
+p {
+  text-align: left;
+  margin: 10px;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 5px #000, 0 0 10px #000;
+  }
+  50% {
+    box-shadow: 0 0 20px #000, 0 0 30px #000;
+  }
+  100% {
+    box-shadow: 0 0 5px #000, 0 0 10px #000;
+  }
+}
+
+footer p {
+  color: #fff;
+  font-weight: bold;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  /* margin: 10px 5px 0px 20px; */
+}
+footer {
+  position: relative;
+  margin: 10px 5px 0px 20px;
+  
+  /* box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5); */
+}
+
 @media (max-width: 1030px) {
   .menu-toggle span {
     display: block;
     margin-left: 20px;
   }
 
-  body, html {
+  body,
+  html {
     overflow-x: hidden;
     height: 100%;
     margin: 0;
@@ -131,23 +200,22 @@ p {
 
   header li a:hover {
     font-style: italic;
-    color: #eb5225;
+    background-color: #eb5225;
   }
 
-  header nav ul li a{
+  header nav ul li a {
     transition: color 0.3s ease-in-out;
   }
 
-   header nav ul li{
-     padding: 10px 0;
-   }
-
+  header nav ul li {
+    padding: 10px 0;
+  }
 
   #navbar {
     display: none;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.8);
-    
+    color: #000;
   }
 
   #navbar.active {
@@ -164,7 +232,6 @@ p {
   .menu-toggle {
     display: inline-block;
     cursor: pointer;
-
   }
 
   .menu-toggle:hover span {
@@ -213,4 +280,46 @@ p {
     width: max-content;
     transform: translate(-50%, -50%);
   }
+}
+@media (max-width: 400px) {
+  main h1{
+    /* font-size: 20px; */
+    /* line-height: 1.5; */
+    /* margin: 0; */
+    position: absolute;
+    top: 90px;
+    /* right: 0px; */
+    /* left: 0px; */
+    /* transform: translate(-50%, -50%); */
+    /* margin: 0 auto; */
+  }
+  
+  .section1{
+    /* width: 185px; */
+    position: absolute;
+    left: -9px;
+    width: 250px;
+    margin: 0 auto;
+    /* bottom: 00px; */
+    height: 200px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  main h1 {
+    position: ;
+  }
+
+  .logo {
+    width: 70px;
+  }
+  /* .section1 .line ul{
+    position: relative;
+    right: 100px;
+    
+ } */
+  /* footer p{
+    font-size: 12px;
+    text-align: center;
+  } */
 }
