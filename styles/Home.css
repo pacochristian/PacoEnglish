@@ -281,43 +281,7 @@ footer {
 }
 @media (max-width: 400px) {
   main h1{
-    /* font-size: 20px; */
-    /* line-height: 1.5; */
-    /* margin: 0; */
-    position: absolute;
-    top: 90px;
-    /* right: 0px; */
-    /* left: 0px; */
-    /* transform: translate(-50%, -50%); */
-    /* margin: 0 auto; */
-  }
-  
-  .section1{
-    /* width: 185px; */
-    position: absolute;
-    left: -9px;
-    width: 250px;
-    margin: 0 auto;
-    /* bottom: 00px; */
-    height: 200px;
-    font-size: 15px;
-    text-align: center;
-  }
+    font-size: 20px;
 
-  main h1 {
-    position: ;
   }
-
-  .logo {
-    width: 70px;
-  }
-  /* .section1 .line ul{
-    position: relative;
-    right: 100px;
-    
- } */
-  /* footer p{
-    font-size: 12px;
-    text-align: center;
-  } */
 }
