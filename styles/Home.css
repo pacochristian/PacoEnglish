@@ -5,28 +5,39 @@
   /* border: 1px solid red; */
 }
 
-html, body {
+html,
+body {
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
+body {
+  min-height: 100vh;
+  overflow-y: auto;
+}
 header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 20px;
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   right: 0;
   z-index: 1000;
+  /* Background color added */
+  background-color: rgba(0,0,0, 0.85);
 }
 header nav ul {
   display: flex;
-  float: left;
-  justify-content: space-between;
 }
 .logo {
   width: 95px;
-  float: right;
-  margin: 10px 20px;
+  margin-left: 0;
+  /* added code */
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 header nav ul li {
@@ -37,9 +48,8 @@ header nav ul li {
 
 header nav ul li a {
   text-decoration: none;
-  color: inherit;
+  color: #fff;
   font-weight: bold;
-  font-size: larger;
   font-size: 25px;
 }
 
@@ -56,89 +66,92 @@ header li a:hover {
 }
 
 body {
-  background-image: url("../images/library.jpg");
-  /* background-image: url("../images/learn.jpg"); */
-  background-size: cover;
+  /* background-image: url("../images/library.jpg"); */
+  /* background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-attachment: fixed;
+  background-attachment: fixed; */
   color: #fff;
   font-weight: bolder;
   box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
 }
 
-
 main {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr 150px 50px;
-  /* grid-template-rows: repeat(4, 1fr); */
+  grid-template-rows: auto auto auto auto;
   row-gap: 20px;
   text-align: center;
   font-size: 40px;
   font-weight: bold;
   width: 100%;
+  /* added padding for content */
+  padding: 50px;
 }
 
 h1 {
-  /* position: relative;
-  top: 120px; */
   grid-column: 7/12;
   grid-row: 1/2;
 }
 
 p {
-  /* position: absolute;
-  bottom: 0px; */
   grid-column: 7/12;
   grid-row: 2/3;
 }
 
 .button-style {
-  grid-column: 8/10;
-  grid-row: 3/4;
+  grid-column: 7/12;
+  grid-row: 4/5;
+  justify-self: center;
+  align-self: center;
   font-size: 25px;
   background-color: #eb5225;
   border-radius: 19px;
   border: none;
   box-shadow: 0px 0px 25px 0px #000;
   text-align: center;
-  max-width: 100%;
+  width: fit-content;
   text-decoration: none;
   color: #000;
   cursor: pointer;
-  padding: 10px;
+  padding: 10px 20px;
+}
+/* MOBILE TOGGLE BAR STYLES(HIDDEN ON DESKTOP) */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-right: 20px;
 }
 
 .menu-toggle span {
-  /* display: block; */
+  /* Initially hidden on desktop, set to block on mobile */
   display: none;
   padding: 2px;
   width: 25px;
   height: 3px;
-  margin: 5px;
-  background-color: black;
-  cursor: pointer;
+  margin: 4px 0;
+  background-color: white;
+  transition: background-color 0.3s;
 }
 
 .section1 {
-  position: absolute;
-  bottom: 0px;
-  top: 120px;
+  position: static;
+  grid-column: 1/7;
+  grid-row: 1/4;
   font-weight: bolder;
-  width: 500px;
-  height: 400px;
-  margin: 20px 0px 10px 80px;
+  width: auto;
+  height: auto;
+  margin: 0;
   border-radius: 10px;
   font-weight: bold;
   font-size: 25px;
   animation: glowPulse 2s infinite;
-  padding: 50px;
+  padding: 30px;
 }
 
 .section1 ul,
-p {
+.section1 p {
   text-align: left;
   margin: 10px;
 }
@@ -160,21 +173,50 @@ footer p {
   font-weight: bold;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  /* margin: 10px 5px 0px 20px; */
 }
+
 footer {
   position: relative;
   margin: 10px 5px 0px 20px;
-  
-  /* box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5); */
 }
+/* -------------------------------- */
+/* MEDIA QUERY FOR MOBILE DEVICES */
+/* -------------------------------- */
 
 @media (max-width: 1030px) {
-  .menu-toggle span {
-    display: block;
-    margin-left: 20px;
+  /* Show the toggle button */
+  .menu-toggle{
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 20px;
   }
 
+  /* Show the bars inside the toggle button */
+  .menu-toggle span {
+    display: block;
+    margin: 4px 0; /* Space between bars */
+    background-color: #fff;
+    transition: background-color 0.3s, transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .section1 {
+    position: static;
+    width: 90%;
+    height: auto;
+    margin: 30px auto;
+    padding: 20px;
+    font-size: 18px;
+  }
+
+  .section1 ul,
+  .section1 p {
+    text-align: left;
+    margin: 5px 0;
+  }
+
+  main {
+    margin: 20px auto;
+  }
   body,
   html {
     overflow-x: hidden;
@@ -185,103 +227,127 @@ footer {
 
   .red:hover {
     color: #fff;
+    font-style: normal;
   }
 
   header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    right: 0;
-    z-index: 1000;
+    justify-content: space-between; /* Adjusted for toggle button */
   }
+
 
   header li a:hover {
     font-style: italic;
     background-color: #eb5225;
   }
 
-  header nav ul li a {
+  header nav ul li a{
     transition: color 0.3s ease-in-out;
+    color: #000;/* changed to black for better visibility on mobile */
   }
 
   header nav ul li {
     padding: 10px 0;
   }
 
+  /* Mobile menu state (hidden by default) */
   #navbar {
     display: none;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.95);
+    position: fixed; /* Changed to fixed for better positioning */
+    top: 60px; /* Adjust based on header height */
     color: #000;
-  }
-
-  #navbar.active {
-    display: flex;
-    position: absolute;
     left: 0;
     width: 200px;
     margin-left: 10px;
-    z-index: 1000;
-    position: fixed;
+    margin-top: 20px;
+    z-index: 999;
     border-radius: 9px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   }
 
-  .menu-toggle {
-    display: inline-block;
-    cursor: pointer;
+  /* Mobile Menu active state (shown when active) */
+  #navbar.active {
+    display: flex;
+    flex-direction: column;
   }
 
   .menu-toggle:hover span {
     background-color: #eb5225;
   }
 
+  /* toggle to X animation */
+  /* hide the middle bar */
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  /* rotate and move top bar (first child) */
+  .menu-toggle.is-active span:first-child {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  /* rotate and move bottom bar (last child) */
+  .menu-toggle.is-active span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
   #navbar ul {
     flex-direction: column;
     align-items: center;
+    padding: 10px 0;
+    
+  }
+
+  #navbar ul li {
+    margin: 5px 0;
+    
   }
 
   main {
-    display: block;
-    position: relative;
-    left: 25px;
-    right: 60px;
-    padding: 10px;
-    position: relative;
-    transform: translate(10%, 10%);
-    font-size: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    font-size: initial;
   }
 
   h1 {
-    position: absolute;
-    top: 190px;
-    font-size: 30px;
-    display: inline-block;
-    transform: translate(-50%, -50%);
+    position: static;
+    font-size: 38px;
+    transform: none;
+    margin-bottom: 10px;
   }
 
+  .button-style {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 300px;
+  }
   .down {
-    position: absolute;
-    top: 320px;
-    display: inline-block;
-    padding-inline: 9px;
-    font-size: 4vw;
-    transform: translate(-50%, -50%);
+    position: static;
+    transform: none;
+    padding-inline: 0;
+    font-size: 5vw;
+    margin-top: 15px;
   }
 
+  .line{
+    font-size: 25px;
+  }
   p {
-    position: absolute;
-    top: 270px;
-    display: inline-block;
-    font-weight: bolder;
-    font-size: 20px;
-    width: max-content;
-    transform: translate(-50%, -50%);
+    position: static;
+    font-size: 18px;
+    transform: none;
+    width: auto;
+    padding: 0 10px;
+    text-align: center;
   }
 }
-@media (max-width: 400px) {
-  main h1{
-    font-size: 20px;
 
+@media (max-width: 400px) {
+  main h1 {
+    font-size: 20px;
   }
 }
