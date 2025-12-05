@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid red; */
 }
 
 html,
@@ -14,7 +13,11 @@ body {
 body {
   min-height: 100vh;
   overflow-y: auto;
+  color: #fff;
+  font-weight: bolder;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
 }
+
 header {
   display: flex;
   justify-content: flex-start;
@@ -27,7 +30,7 @@ header {
   right: 0;
   z-index: 1000;
   /* Background color added */
-  background-color: rgba(0,0,0, 0.85);
+  background-color: rgba(0, 0, 0, 0.85);
 }
 header nav ul {
   display: flex;
@@ -63,17 +66,6 @@ header li a:hover {
   background-color: #eb5225;
   padding: 2px 20px;
   border-radius: 20px;
-}
-
-body {
-  /* background-image: url("../images/library.jpg"); */
-  /* background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; */
-  color: #fff;
-  font-weight: bolder;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
 }
 
 main {
@@ -179,13 +171,142 @@ footer {
   position: relative;
   margin: 10px 5px 0px 20px;
 }
+
+/* The About Page starts here */
+.about-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  /* margin: 90px; */
+  padding: 20px;
+  background-color: rgb(0, 0, 0, 0.75);
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  flex-grow: 0; /* Prevents stretching */
+}
+
+.about-section {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.95);
+}
+
+.about-section:last-child {
+  border-bottom: none;
+}
+
+.center {
+  /* text-align: left; */
+  color: #eb5225;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.line {
+  color: #fff;
+  font-size: 2rem;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-left: 4px solid #eb5225;
+  padding-left: 0px;
+  text-align: left;
+}
+
+.about-container p,
+.about-container ul {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ccc;
+  padding: 0 10px;
+  text-align:justify;
+}
+
+.about-container ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.about-container li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.about-container li::before {
+  content: "✔";
+  color: #eb5225;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.team-grid {
+  display: flex; /*horizontal layout*/
+  gap: 20px;
+  flex-wrap: nowrap;/*keeps items on a single line*/
+  /* overflow-x: auto; */
+  padding: 20px 10px;
+  /* hide scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.team-grid::-webkit-scrollbar {
+  display: none;
+}
+
+*{
+  /* border: 1px solid #eb5225; */
+}
+.team-member {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* fixed width and prevention of shrinking for the scrollable view*/
+  min-width: 250px;
+  flex-shrink: 0;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eb5225;
+  margin-bottom: 15px;
+}
+
+.role {
+  font-size: 0.8rem;
+  color: #eb5225;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.team-member h3{
+  color: #fff;
+  font-size: 1.4rem;
+}
+/* The About Page ends here */
+
 /* -------------------------------- */
 /* MEDIA QUERY FOR MOBILE DEVICES */
 /* -------------------------------- */
 
 @media (max-width: 1030px) {
   /* Show the toggle button */
-  .menu-toggle{
+  .menu-toggle {
     display: inline-block;
     cursor: pointer;
     margin-right: 20px;
@@ -196,7 +317,8 @@ footer {
     display: block;
     margin: 4px 0; /* Space between bars */
     background-color: #fff;
-    transition: background-color 0.3s, transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition: background-color 0.3s, transform 0.3s ease-in-out,
+      opacity 0.3s ease-in-out;
   }
 
   .section1 {
@@ -234,15 +356,14 @@ footer {
     justify-content: space-between; /* Adjusted for toggle button */
   }
 
-
   header li a:hover {
     font-style: italic;
     background-color: #eb5225;
   }
 
-  header nav ul li a{
+  header nav ul li a {
     transition: color 0.3s ease-in-out;
-    color: #000;/* changed to black for better visibility on mobile */
+    color: #000; /* changed to black for better visibility on mobile */
   }
 
   header nav ul li {
@@ -296,12 +417,10 @@ footer {
     flex-direction: column;
     align-items: center;
     padding: 10px 0;
-    
   }
 
   #navbar ul li {
     margin: 5px 0;
-    
   }
 
   main {
@@ -333,7 +452,7 @@ footer {
     margin-top: 15px;
   }
 
-  .line{
+  .line {
     font-size: 25px;
   }
   p {
@@ -343,5 +462,27 @@ footer {
     width: auto;
     padding: 0 10px;
     text-align: center;
+  }
+
+  /* Responsive about page */
+  .team-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    /* gap: 20px; */
+    overflow-x: hidden;
+  }
+
+  /* Mobile ajustments for content */
+  .center {
+    font-size: 2rem;
+  }
+
+  .line{
+    font-size: 1.5rem;
+  }
+
+  .about-container p,
+  .about-container ul {
+    font-size: 1rem;
   }
 }
