@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/Home.css" />
+    <title>Available Courses - Paco English</title>
+  </head>
+  <body>
+    <button id="scrollToTopBtn" class="scroll-top-btn" onclick="scrollToTop()">
+      ↑
+    </button>
+
+    <a href="dashboard.html" class="back-link">
+      <span>←</span> Back to Dashboard
+    </a>
+
+    <main class="about-container" style="margin-top: 80px">
+      <h1 style="text-align: center; color: white; margin-bottom: 10px">
+        Available English Courses
+      </h1>
+      <p style="text-align: center; color: #ddd; margin-bottom: 40px">
+        Invest in your future with our specialized programs.
+      </p>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="level-tag">ABSOLUTE BEGINNER</div>
+          <h3>English A0</h3>
+          <p class="role">For those with zero previous English experience.</p>
+          <div class="course-info">
+            <span><strong>Price:</strong> 25,000 CFA</span> |
+            <span><strong>Duration:</strong> 4 Weeks</span>
+          </div>
+          <button
+            onclick="enrollInSpecificCourse('English A0')"
+            class="button-style"
+          >
+            Enroll Now
+          </button>
+        </div>
+
+        <div class="team-member">
+          <div class="level-tag">BASIC USER</div>
+          <h3>Beginner A1</h3>
+          <p class="role">Learn foundations and basic phrases.</p>
+          <div class="course-info">
+            <span><strong>Price:</strong> 30,000 CFA</span> |
+            <span><strong>Duration:</strong> 4 Weeks</span>
+          </div>
+          <button
+            onclick="enrollInSpecificCourse('Beginner A1')"
+            class="button-style"
+          >
+            Enroll Now
+          </button>
+        </div>
+
+        <div class="team-member">
+          <div class="level-tag">INDEPENDENT USER</div>
+          <h3>Intermediate B1</h3>
+          <p class="role">Gain confidence for work and travel.</p>
+          <div class="course-info">
+            <span><strong>Price:</strong> 45,000 CFA</span> |
+            <span><strong>Duration:</strong> 8 Weeks</span>
+          </div>
+          <button
+            onclick="enrollInSpecificCourse('Intermediate B1')"
+            class="button-style"
+          >
+            Enroll Now
+          </button>
+        </div>
+
+        <div class="team-member">
+          <div class="level-tag">PROFESSIONAL</div>
+          <h3>Business English</h3>
+          <p class="role">Interviews, emails, and corporate communication.</p>
+          <div class="course-info">
+            <span><strong>Price:</strong> 60,000 CFA</span> |
+            <span><strong>Duration:</strong> 6 Weeks</span>
+          </div>
+          <button
+            onclick="enrollInSpecificCourse('Business English')"
+            class="button-style"
+          >
+            Enroll Now
+          </button>
+        </div>
+
+        <div class="team-member">
+          <div class="level-tag">PROFICIENT USER</div>
+          <h3>Advanced C1</h3>
+          <p class="role">Master complex academic and social English.</p>
+          <div class="course-info">
+            <span><strong>Price:</strong> 75,000 CFA</span> |
+            <span><strong>Duration:</strong> 10 Weeks</span>
+          </div>
+          <button
+            onclick="enrollInSpecificCourse('Advanced C1')"
+            class="button-style"
+          >
+            Enroll Now
+          </button>
+        </div>
+
+        <div class="team-member">
+          <div class="level-tag">MASTER</div>
+          <h3>Proficiency C2</h3>
+          <p class="role">Highest level of native-like mastery.</p>
+          <div class="course-info">
+            <span><strong>Price:</strong> 90,000 CFA</span> |
+            <span><strong>Duration:</strong> 12 Weeks</span>
+          </div>
+          <button
+            onclick="enrollInSpecificCourse('Proficiency C2')"
+            class="button-style"
+          >
+            Enroll Now
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="script/pacoenglish.js"></script>
+  </body>
+</html>

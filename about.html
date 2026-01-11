@@ -1,84 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/Home.css">
-    <title>Paco English</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us - Paco English</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles/Home.css" />
+  </head>
+  <body>
     <header>
-        <div class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <a href="index.html">
-        <img class="logo" src="images/Logo.jpg" alt="Paco English logo">
-        </a>
-        <nav id="navbar">
-            <ul>
-                <li><a class="red" href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="signin.html">Sign In</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
-            </ul>
-        </nav>
-         <script src="script/pacoenglish.js"></script>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <a href="index.html">
+        <img class="logo" src="images/Logo.jpg" alt="Paco English logo" />
+      </a>
+      <nav id="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="red" href="about.html">About</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="signin.html">Sign In</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
     </header>
-    <main class="about-container">
-        <!-- <h1>Our Story and Mission</h1> -->
 
-        <section class="about-section">
-            <!-- <h2>Our Mission</h2>
-            <p>Paco English was founded on the belief that language learning should be accessible, engaging, and effective for everyone. Our mission is to empower individuals to achieve fluency in English through innovative teaching methods and personalized support.</p>
-        </section>
-        <section class="about-section">
-            <h2>Core Values</h2>
-            <ul>
-                <li><em>Excellence</em> Providing the highest quality education and support to our students.</li>
-                <li><em>Innovation</em> Continuously improving our teaching methods and materials.</li>
-                <li><em>Accessibility</em> Making language learning available to everyone, regardless of background.</li>
-                <li><em>Community</em> Fostering a supportive and inclusive learning environment.</li>
-            </ul>
-        </section> -->
-        <section class="about-section">
-            <h1 class="center">Our Story and Mission</h1>
-            <h2 class="line">Our Mission</h2>
-            <p>Paco English was founded on the belief that language learning should be accessible, engaging, and effective for everyone. Our mission is to empower individuals to achieve fluency in English through innovative teaching methods and personalized support.</p>
-        </section>
-        <section class="about-section">
-            <h2 class="line">Core Values</h2>
-            <ul>
-                <li><strong>Excellence</strong> Providing the highest quality education and support to our students.</li>
-                <li><strong>Innovation</strong> Continuously improving our teaching methods and materials.</li>
-                <li><strong>Accessibility</strong> Making language learning available to everyone, regardless of background.</li>
-                <li><strong>Community</strong> Fostering a supportive and inclusive learning environment.</li>
-            </ul>
-        </section>
-        <section class="about-section">
-            <h2 class="line">Meet Our dedicated Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="images/Paco_nice.jpg" alt="Team Member 1">
-                    <h3>Paco KIFOUETO</h3>
-                    <p class="role">Founder & Lead Instructor</p>
-                </div>
-                <div class="team-member">
-                    <img src="images/team2.jpg" alt="Team Member 2">
-                    <h3>Ravel BITOUNGUI</h3>
-                    <p class="role">Curriculum Developer</p>
-                </div>
-                <div class="team-member">
-                    <img src="images/team3.jpg" alt="Team Member 3">
-                    <h3>Rachni MATIABA</h3>
-                    <p class="role">Student Support Specialist</p>
-                </div>
+    <main class="about-container">
+      <section class="about-section">
+        <h1 class="center">Our Story and Mission</h1>
+        <h2 class="line">Our Mission</h2>
+        <p>
+          Paco English was founded on the belief that language learning should
+          be accessible, engaging, and effective for everyone. Our mission is to
+          empower individuals to achieve fluency in English through innovative
+          teaching methods and personalized support.
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2 class="line">Core Values</h2>
+        <ul class="values-list">
+          <li>
+            <strong>Excellence:</strong> Providing the highest quality education
+            and support to our students.
+          </li>
+          <li>
+            <strong>Innovation:</strong> Continuously improving our teaching
+            methods and materials.
+          </li>
+          <li>
+            <strong>Accessibility:</strong> Making language learning available
+            to everyone, regardless of background.
+          </li>
+          <li>
+            <strong>Community:</strong> Fostering a supportive and inclusive
+            learning environment.
+          </li>
+        </ul>
+      </section>
+
+      <section class="about-section">
+        <h2 class="line">Meet Our Dedicated Team</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="images/Paco_nice.jpg" alt="Paco KIFOUETO" />
+            <h3>Paco KIFOUETO</h3>
+            <p class="role">Founder & Lead Instructor</p>
+          </div>
+          <div class="team-member">
+            <img src="images/team2.jpg" alt="Ravel BITOUNGUI" />
+            <h3>Ravel BITOUNGUI</h3>
+            <p class="role">Curriculum Developer</p>
+          </div>
+          <div class="team-member">
+            <img src="images/team3.jpg" alt="Rachni MATIABA" />
+            <h3>Rachni MATIABA</h3>
+            <p class="role">Student Support Specialist</p>
+          </div>
+        </div>
+      </section>
+      <section class="about-section contact-section">
+        <h2 class="line">Get in Touch</h2>
+        <p>
+          Have questions about our courses? Send us a message and we'll get back
+          to you shortly.
+        </p>
+
+        <form id="contact-form" class="glass-form">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+              />
             </div>
-        </section>
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="subject">Subject</label>
+            <select id="subject">
+              <option value="general">General Inquiry</option>
+              <option value="enrollment">Course Enrollment</option>
+              <option value="support">Technical Support</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              rows="5"
+              placeholder="How can we help you?"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="button-style">
+            Send Message <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </section>
     </main>
+
     <footer>
-        <p>&copy; 2025 Paco English. All rights reserved.</p>
+      <p>&copy; 2026 Paco English. All rights reserved.</p>
     </footer>
-</body>
+
+    <script src="script/pacoenglish.js"></script>
+  </body>
+</html>

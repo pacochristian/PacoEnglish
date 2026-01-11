@@ -1,58 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/Home.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paco English</title>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles/Home.css" />
+  </head>
+  <body>
     <header>
-        <div class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <a href="index.html">
-        <img class="logo" src="images/Logo.jpg" alt="Paco English logo">
-        </a>
-        <nav id="navbar">
-            <ul>
-                <li><a class="red" href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="signin.html">Sign In</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
-            </ul>
-        </nav>
-         <script src="script/pacoenglish.js"></script>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <a href="index.html">
+        <img class="logo" src="images/Logo.jpg" alt="Paco English logo" />
+      </a>
+
+      <nav id="navbar">
+        <ul>
+          <li><a class="red" href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="signin.html">Sign In</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
     </header>
+
     <main>
-        <h1>Welcome to Paco English</h1>
-        <p>Your journey to mastering <br>English <br>starts here!</p>
-        
-        
-        <section class="section1">
-            <h2>Why Choose Us?</h2>
-            <p>At Paco English, we offer a unique approach to language learning that combines:</p>
-            <ul>
-                <li>Experienced Instructors</li>
-                <li>Interactive Lessons</li>
-                <li>Flexible Scheduling</li>
-                <li>Personalized Learning Paths</li>
-            </ul>
-        </section>
-        <a href="learn-more.html" target="_blank" class="button-style">Learn More</a>
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Welcome to <span>Paco English</span></h1>
+          <p>
+            Your journey to mastering English starts here! Join thousands of
+            students learning with our unique, interactive method.
+          </p>
+
+          <div class="search-container">
+            <input
+              type="text"
+              id="course-search"
+              placeholder="Search courses..."
+              onkeyup="handleSearch(this)"
+            />
+            <i
+              class="fas fa-times clear-btn"
+              id="clear-search"
+              onclick="clearSearch()"
+            ></i>
+            <button class="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <br />
+          <a href="signup.html" class="button-style">Get Started Today</a>
+        </div>
+
+        <div class="section1">
+          <h2>Why Choose Us?</h2>
+          <p>We combine technology with human expertise:</p>
+          <ul>
+            <li>Experienced Instructors</li>
+            <li>Interactive Lessons</li>
+            <li>Flexible Scheduling</li>
+            <li>Personalized Learning Paths</li>
+          </ul>
+        </div>
+      </section>
     </main>
+
     <div class="box">
-        <div class="speaking"></div>
-        <div class="reading"></div>
-        <div class="listening"></div>
+      <div class="speaking"></div>
+      <div class="reading"></div>
+      <div class="listening"></div>
     </div>
 
-
     <footer>
-        <p>&copy; 2025 Paco English. All rights reserved.</p>
+      <p>&copy; 2026 Paco English. All rights reserved.</p>
     </footer>
-</body>
+
+    <script src="script/pacoenglish.js"></script>
+  </body>
 </html>

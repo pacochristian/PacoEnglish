@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Paco English - Student Dashboard</title>
+    <link rel="stylesheet" href="styles/Home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span><span></span><span></span>
+      </div>
+      <a href="index.html">
+        <img class="logo" src="images/Logo.jpg" alt="Paco English logo" />
+      </a>
+      <nav id="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="red" href="dashboard.html">Dashboard</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">My Courses ▾</a>
+            <div class="dropdown-content" id="course-dropdown-list"></div>
+          </li>
+          <li><a href="signin.html">Sign In</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="dashboard-container">
+      <div class="dashboard-header">
+        <div class="header-left">
+          <span class="breadcrumb">Pages / Dashboard</span>
+          <h1>Student Dashboard</h1>
+        </div>
+
+        <div class="header-right">
+          <div class="search-wrapper">
+            <div class="search-container">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                id="course-search"
+                placeholder="Search lessons..."
+                onkeyup="enhancedSearch(this)"
+                autocomplete="off"
+              />
+              <button
+                id="clear-search"
+                class="clear-btn"
+                onclick="clearSearch()"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div
+              id="search-results-dropdown"
+              class="search-results-glass"
+            ></div>
+          </div>
+          <div class="header-actions">
+            <a href="courses.html" class="add-course-btn">
+              <i class="fas fa-plus"></i>
+              <span class="btn-text">Add New Course</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-grid">
+        <section class="profile-overview card-glass">
+          <div class="profile-header">
+            <div class="avatar-wrapper">
+              <img
+                src="images/student-avatar.png"
+                alt="Profile"
+                class="profile-avatar"
+              />
+              <div class="lvl-tag">5</div>
+            </div>
+            <div class="profile-meta">
+              <h3>Alex Thompson</h3>
+              <p><i class="fas fa-award"></i> Advanced Learner</p>
+            </div>
+          </div>
+          <div class="quick-stats">
+            <div class="stat"><small>XP</small><strong>1,250</strong></div>
+            <div class="stat"><small>Streak</small><strong>14</strong></div>
+            <div class="stat"><small>Certs</small><strong>3</strong></div>
+          </div>
+        </section>
+
+        <div class="banner-box card-glass">
+          <div class="banner-overlay"></div>
+          <img
+            src="images/Gemini_Generated_Image_3ra0jv3ra0jv3ra0.png"
+            alt="Banner"
+            class="banner-img"
+          />
+          <div class="banner-content">
+            <h2>Welcome Back! 👋</h2>
+            <p>
+              You've completed <strong>75%</strong> of your goal. Keep it up!
+            </p>
+            <button class="banner-btn">Continue Learning</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="course-section">
+        <div class="section-header">
+          <h3>Active Learning</h3>
+          <a href="#" class="view-all">View All</a>
+        </div>
+        <div class="stats-grid" id="main-course-grid">
+          <div class="stat-card card-glass">
+            <div class="card-top">
+              <span class="level-tag">Beginner</span>
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+            <h3>English Grammar 101</h3>
+            <p class="instructor">with Prof. Paco</p>
+            <div class="progress-wrapper">
+              <div class="progress-info">
+                <span>Progress</span>
+                <span>75%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="course-modal" class="modal">
+      <div class="modal-content glass selection-modal">
+        <div class="modal-header">
+          <h2>Explore Available Courses</h2>
+          <span class="close-modal" onclick="closeModal()">&times;</span>
+        </div>
+        <div class="course-selection-list">
+          <div
+            class="course-option-card"
+            onclick="enrollInSpecificCourse('Business English')"
+          >
+            <div class="card-visual"><i class="fas fa-briefcase"></i></div>
+            <div class="option-info">
+              <div class="card-meta-top">
+                <span class="badge intermediate">Intermediate</span>
+                <span class="lesson-count"
+                  ><i class="far fa-play-circle"></i> 12 Lessons</span
+                >
+              </div>
+              <h3>Business English</h3>
+              <p>Master formal emails and professional networking.</p>
+            </div>
+            <div class="enroll-action">
+              <div class="plus-icon-container"><i class="fas fa-plus"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Paco English. All rights reserved.</p>
+    </footer>
+
+    <script src="script/pacoenglish.js"></script>
+  </body>
+</html>
