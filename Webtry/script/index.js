@@ -4,7 +4,6 @@
 let points = parseInt(localStorage.getItem("pacoPoints")) || 0;
 let masteredWords = JSON.parse(localStorage.getItem("masteredWords")) || [];
 let streak = localStorage.getItem("pacoStreak") || 0;
-let lastDate = localStorage.getItem("pacoLastDate") || "";
 let currentQuizWord = "";
 let userLevel = "Beginner";
 
@@ -13,7 +12,6 @@ let userLevel = "Beginner";
    ========================================= */
 const pacoBubble = document.getElementById("paco-bubble");
 const pointsDisplay = document.getElementById("points");
-const streakDisplay = document.getElementById("streak-count");
 const englishWord = document.getElementById("english-word");
 const definition = document.getElementById("definition");
 const flashcard = document.getElementById("flashcard-container");
@@ -26,7 +24,6 @@ const pointsToNextText = document.getElementById("points-to-next");
    3. CORE FUNCTIONS (Logic)
    ========================================= */
 
-// Fetch word from Internet
 async function fetchRandomWord() {
   pacoBubble.innerText = "Paco is thinking... 🧠";
   try {
@@ -39,12 +36,24 @@ async function fetchRandomWord() {
     const dictResponse = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
     );
-    if (!dictResponse.ok) return fetchRandomWord(); // Retry if no definition
+    if (!dictResponse.ok) return fetchRandomWord(); // Retry if no definition found
 
     const dictData = await dictResponse.json();
+    const englishDef = dictData[0].meanings[0].definitions[0].definition;
+
+    // Fetch French Translation
+    const transResponse = await fetch(
+      `https://api.mymemory.translated.net/get?q=${encodeURIComponent(
+        englishDef
+      )}&langpair=en|fr`
+    );
+    const transData = await transResponse.json();
+    const frenchDef = transData.responseData.translatedText;
+
     return {
       word: dictData[0].word,
-      definition: dictData[0].meanings[0].definitions[0].definition,
+      definition: englishDef,
+      translation: frenchDef,
     };
   } catch (error) {
     pacoBubble.innerText = "Oops! Check your internet!";
@@ -62,17 +71,30 @@ function pacoSpeaks(text) {
 
 function updateProgressBar() {
   let goal = 100;
-  if (points >= 100) goal = 300;
-  if (points >= 300) goal = 1000;
+  if (points >= 100) {
+    userLevel = "Intermediate";
+    goal = 300;
+  }
+  if (points >= 300) {
+    userLevel = "Advanced";
+    goal = 1000;
+  }
 
   const percentage = Math.min((points / goal) * 100, 100);
-  progressFill.style.width = `${percentage}%`;
-  pointsToNextText.innerText = goal - points;
+  if (progressFill) progressFill.style.width = `${percentage}%`;
+  if (currentLevelText) currentLevelText.innerText = userLevel;
+  if (pointsToNextText) pointsToNextText.innerText = Math.max(0, goal - points);
 }
 
 function saveProgress() {
   localStorage.setItem("pacoPoints", points);
   localStorage.setItem("masteredWords", JSON.stringify(masteredWords));
+}
+
+function renderGallery() {
+  wordGallery.innerHTML = masteredWords
+    .map((w) => `<span class="learned-badge">✅ ${w}</span>`)
+    .join("");
 }
 
 /* =========================================
@@ -83,28 +105,42 @@ function saveProgress() {
 document.getElementById("lesson-btn").addEventListener("click", async () => {
   document.getElementById("quiz-container").classList.add("hidden");
   const onlineWord = await fetchRandomWord();
+
   if (onlineWord) {
     englishWord.innerText = onlineWord.word;
     definition.innerText = onlineWord.definition;
+
+    const flashcardTransEl = document.getElementById("flashcard-translation");
+    if (flashcardTransEl)
+      flashcardTransEl.innerText = `🇫🇷 ${onlineWord.translation}`;
+
     flashcard.classList.remove("hidden");
     pacoBubble.innerText = "Look what I found online!";
     setTimeout(() => pacoSpeaks(onlineWord.word), 500);
   }
 });
 
+// LISTEN BUTTON
+document.getElementById("speak-btn").addEventListener("click", () => {
+  const wordToSpeak = englishWord.innerText;
+  if (wordToSpeak && wordToSpeak !== "---") pacoSpeaks(wordToSpeak);
+});
+
 // LEARNED IT BUTTON
 document.getElementById("complete-btn").addEventListener("click", () => {
-  points += 10;
-  pointsDisplay.innerText = points;
   const word = englishWord.innerText;
-  if (!masteredWords.includes(word)) {
-    masteredWords.push(word);
-    renderGallery();
+  if (word && word !== "---") {
+    points += 10;
+    pointsDisplay.innerText = points;
+    if (!masteredWords.includes(word)) {
+      masteredWords.push(word);
+      renderGallery();
+    }
+    flashcard.classList.add("hidden");
+    pacoBubble.innerText = "Great job! +10 Taco Points!";
+    saveProgress();
+    updateProgressBar();
   }
-  flashcard.classList.add("hidden");
-  pacoBubble.innerText = "Great job! +10 Taco Points!";
-  saveProgress();
-  updateProgressBar();
 });
 
 // QUIZ MODE BUTTON
@@ -115,6 +151,11 @@ document.getElementById("quiz-mode-btn").addEventListener("click", async () => {
     currentQuizWord = onlineWord.word;
     document.getElementById("quiz-definition").innerText =
       onlineWord.definition;
+
+    const transEl = document.getElementById("quiz-translation");
+    if (transEl)
+      transEl.innerText = `🇫🇷 Translation: ${onlineWord.translation}`;
+
     document.getElementById("quiz-container").classList.remove("hidden");
     document.getElementById("quiz-feedback").innerText = "";
     document.getElementById("quiz-input").value = "";
@@ -147,10 +188,13 @@ document.getElementById("submit-quiz-btn").addEventListener("click", () => {
 
 // LOGIN LOGIC
 document.getElementById("login-submit").addEventListener("click", () => {
-  const name = document.getElementById("username-input").value;
+  const name = document.getElementById("username-input").value.trim();
   if (name) {
     pacoBubble.innerText = `Nice to meet you, ${name}!`;
-    document.getElementById("login-modal").classList.add("hidden");
+    document.getElementById("login-modal").style.display = "none";
+    localStorage.setItem("pacoUserName", name);
+  } else {
+    alert("Please enter your name to start!");
   }
 });
 
@@ -175,17 +219,17 @@ document.getElementById("reset-btn").addEventListener("click", () => {
 /* =========================================
    5. INITIALIZATION
    ========================================= */
-function renderGallery() {
-  wordGallery.innerHTML = masteredWords
-    .map((w) => `<span class="learned-badge">✅ ${w}</span>`)
-    .join("");
-}
-
 window.onload = () => {
   pointsDisplay.innerText = points;
   renderGallery();
   updateProgressBar();
-  // Theme loading
   const savedTheme = localStorage.getItem("pacoTheme") || "light";
   document.documentElement.setAttribute("data-theme", savedTheme);
+
+  // Auto-login if name exists
+  const savedName = localStorage.getItem("pacoUserName");
+  if (savedName) {
+    document.getElementById("login-modal").style.display = "none";
+    pacoBubble.innerText = `Welcome back, ${savedName}!`;
+  }
 };

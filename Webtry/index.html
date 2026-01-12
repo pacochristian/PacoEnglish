@@ -14,77 +14,88 @@
         <button id="login-submit" class="btn">Start Learning</button>
       </div>
     </div>
+
     <header>
       <nav>
         <div class="logo">Paco English 🌮</div>
-        <div id="score-display">Taco Points: <span id="points">0</span></div>
-        <div id="streak-display">🔥 Streak: <span id="streak-count">0</span> days</div>
-        <nav>
-    <!-- <div class="logo">Paco English 🌮</div> -->
-    <div class="nav-controls">
-        <button id="theme-toggle" class="icon-btn">🌙 Dark Mode</button>
-        <div id="score-display">Taco Points: <span id="points">0</span></div>
-    </div>
-</nav>
-
-<section id="mastery-section">
-    <h3>Words You've Mastered 🎓</h3>
-    <div id="word-gallery" class="gallery">
+        <div class="nav-controls">
+          <button id="theme-toggle" class="icon-btn">🌙 Dark Mode</button>
+          <div id="score-display">Taco Points: <span id="points">0</span></div>
+          <div id="streak-display">
+            🔥 Streak: <span id="streak-count">0</span> days
+          </div>
         </div>
-</section>
       </nav>
     </header>
-<div class="progress-container">
-    <div class="progress-info">
+
+    <section id="mastery-section">
+      <h3>Words You've Mastered 🎓</h3>
+      <div id="word-gallery" class="gallery"></div>
+    </section>
+
+    <div class="progress-container">
+      <div class="progress-info">
         <span>Level: <span id="current-level">Beginner</span></span>
         <span><span id="points-to-next">100</span> pts to next level</span>
-    </div>
-    <div class="progress-bar-bg">
+      </div>
+      <div class="progress-bar-bg">
         <div id="progress-fill"></div>
+      </div>
     </div>
-</div>
+
     <main>
       <section class="hero">
         <h1>Learn with Paco</h1>
         <div id="paco-container">
-        <img src="image/logo.jpg" alt="Paco the Owl" id="paco-img">
-        
-        <div id="paco-character">
-            <p id="paco-bubble">Welcome! Click the button to learn your first word!</p>
-        </div>
-        <div id="paco-character">
-          <p id="paco-bubble">
-            Welcome! Click the button to learn your first word!
-          </p>
+          <img src="image/logo.jpg" alt="Paco the Owl" id="paco-img" />
+          <div id="paco-character">
+            <p id="paco-bubble">
+              Welcome! Click the button to learn your first word!
+            </p>
+          </div>
         </div>
         <button id="lesson-btn" class="btn">New Word</button>
+        <button id="quiz-mode-btn" class="btn secondary">Quiz Mode</button>
       </section>
 
       <section id="flashcard-container" class="hidden">
         <div class="card">
           <h2 id="english-word">---</h2>
-    <button id="speak-btn" class="icon-btn">🔊 Listen</button>
-    <p id="definition">---</p>
-    <button id="complete-btn" class="btn success">I learned it!</button>
+          <button id="speak-btn" class="icon-btn">🔊 Listen</button>
+          <p id="definition">---</p>
+          <p
+            id="flashcard-translation"
+            style="font-style: italic; color: #007bff"
+          ></p>
+          <button id="complete-btn" class="btn success">I learned it!</button>
         </div>
       </section>
 
-      <button id="quiz-mode-btn" class="btn secondary">Quiz Mode</button>
+      <section id="quiz-container" class="hidden">
+        <div class="card quiz-card">
+          <h3>Paco's Challenge!</h3>
+          <h4>Guess the word according to the definition</h4>
+          <h5>(Devine le mot par rapport à la définition)</h5>
+          <p id="quiz-definition">Definition goes here...</p>
+          <p
+            id="quiz-translation"
+            style="font-style: italic; color: #666; margin-bottom: 10px"
+          ></p>
 
-<section id="quiz-container" class="hidden">
-    <div class="card quiz-card">
-        <h3>Paco's Challenge!</h3>
-        <p id="quiz-definition">Definition goes here...</p>
-        <input type="text" id="quiz-input" placeholder="Type the word here...">
-        <button id="submit-quiz-btn" class="btn">Check Answer</button>
-        <p id="quiz-feedback"></p>
-    </div>
-</section>
+          <input
+            type="text"
+            id="quiz-input"
+            placeholder="Type the word here..."
+          />
+          <button id="submit-quiz-btn" class="btn">Check Answer</button>
+          <p id="quiz-feedback"></p>
+        </div>
+      </section>
     </main>
 
     <footer>
-    <button id="reset-btn" class="danger-btn">Reset All Progress</button>
-</footer>
+      <button id="reset-btn" class="danger-btn">Reset All Progress</button>
+    </footer>
 
     <script src="script/index.js"></script>
   </body>
